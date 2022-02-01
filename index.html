@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="vue.js"></script>
     <title>Document</title>
+    <style>
+        .verde {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -25,7 +30,13 @@
         Chamando o método anônimo subtrair = 4 - 2 = {{ subtrair() }} <br>
         Chamando o método arrow multiplicar = 4 * 2 = {{ multiplicar() }} <br>
         Chamando o método enxuto dividir = 4 / 2 = {{ dividir() }} <br>
-        Chamando o método média a partir do data = ({{ n1 }} + {{ n2 }}) / 2 = {{ media() }} <br>
+        Chamando o método média a partir do data = ({{ n1 }} + {{ n2 }}) / 2 = {{ media() }} <br><br>
+
+        Trabalhando com v-bind:
+        <input type="text" v-bind:placeholder="instrucao"><br>
+        <p :class="cor">Trocando a cor com v-bind</p> <br>
+        <a :href="perfil.site">Clique aqui v-bind</a><br>
+        
     </div>
 
     <script>
@@ -41,6 +52,8 @@
                 n1: 9,
                 n2: 10,
                 isLogado: false,
+                instrucao: 'Digite aqui',
+                cor: 'verde',
                 //Array
                 hobbies: [
                     'Dormir',
