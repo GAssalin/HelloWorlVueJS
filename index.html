@@ -9,7 +9,16 @@
 </head>
 <body>
     <div id="app">
-        {{ mensagem }}
+        Mensagem = {{ mensagem }} <br>
+        Valor Total = {{ valorTotal }} <br>
+        Usuario Logado? = {{ isLogado }} <br>
+        Hobbies = {{ hobbies }} <br>
+        Terceiro Hobbie = {{ hobbies[2] }} <br>
+        Perfil = {{ perfil }} <br>
+        Nome do Perfil = {{ perfil.nome }} <br>
+        Cursos do Perfil = {{ perfil.cursos }} <br>
+        Primeiro Curso do Perfil = {{ perfil.cursos[0] }} <br>
+        Carga Horaria do Segundo Curso do Perfil = {{ perfil.cursos[1].cargaHoraria }}
     </div>
 
     <script>
@@ -20,7 +29,31 @@
             el: '#app',
             //data guarda os atributos reativos
             data: {
-                mensagem: 'Primeiro template pelo Vue'
+                mensagem: 'Primeiro template pelo Vue',
+                valorTotal: 20.7,
+                isLogado: false,
+                //Array
+                hobbies: [
+                    'Dormir',
+                    'Estudar',
+                    'Jogar'
+                ],
+                perfil: {
+                    nome: 'Gustavo Assalin',
+                    site: 'gustavo.teste.com.br',
+                    idade: 26,
+                    //Lista de objetos
+                    cursos: [
+                        {
+                            nome: 'Analise de Sistemas',
+                            cargaHoraria: '1000 horas'
+                        },
+                        {
+                            nome: 'Direito',
+                            cargaHoraria: '500 horas'
+                        }
+                    ]
+                }
             }
         }
 
