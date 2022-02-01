@@ -25,6 +25,7 @@
         Chamando o método anônimo subtrair = 4 - 2 = {{ subtrair() }} <br>
         Chamando o método arrow multiplicar = 4 * 2 = {{ multiplicar() }} <br>
         Chamando o método enxuto dividir = 4 / 2 = {{ dividir() }} <br>
+        Chamando o método média a partir do data = ({{ n1 }} + {{ n2 }}) / 2 = {{ media() }} <br>
     </div>
 
     <script>
@@ -37,6 +38,8 @@
             data: {
                 mensagem: 'Primeiro template pelo Vue',
                 valorTotal: 20.7,
+                n1: 9,
+                n2: 10,
                 isLogado: false,
                 //Array
                 hobbies: [
@@ -77,6 +80,9 @@
                 //forma mais enxuta
                 dividir() {
                     return 4/2;
+                },
+                media() {
+                    return (this.n1 + this.n2) / 2;
                 }
             }
         }
