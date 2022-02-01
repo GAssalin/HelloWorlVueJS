@@ -18,7 +18,13 @@
         Nome do Perfil = {{ perfil.nome }} <br>
         Cursos do Perfil = {{ perfil.cursos }} <br>
         Primeiro Curso do Perfil = {{ perfil.cursos[0] }} <br>
-        Carga Horaria do Segundo Curso do Perfil = {{ perfil.cursos[1].cargaHoraria }}
+        Carga Horaria do Segundo Curso do Perfil = {{ perfil.cursos[1].cargaHoraria }} <br><br>
+
+        Trabahando com métodos:
+        Chamando o método somar = 4 + 2 = {{ somar() }} <br>
+        Chamando o método anônimo subtrair = 4 - 2 = {{ subtrair() }} <br>
+        Chamando o método arrow multiplicar = 4 * 2 = {{ multiplicar() }} <br>
+        Chamando o método enxuto dividir = 4 / 2 = {{ dividir() }} <br>
     </div>
 
     <script>
@@ -53,6 +59,24 @@
                             cargaHoraria: '500 horas'
                         }
                     ]
+                }
+            },
+            methods: {
+                //convencional
+                somar: function somar() {
+                    return 4+2;
+                },
+                //anônimo
+                subtrair: function() {
+                    return 4-2;
+                },
+                //arrow function
+                multiplicar: () => {
+                    return 4*2;
+                },
+                //forma mais enxuta
+                dividir() {
+                    return 4/2;
                 }
             }
         }
