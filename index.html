@@ -8,6 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-    Teste
+    <div id="app">
+        {{ mensagem }}
+    </div>
+
+    <script>
+        options = {
+            //el cria a referencia para a tag no html
+            //# para referencia por id
+            //. para referencia por class
+            el: '#app',
+            //data guarda os atributos reativos
+            data: {
+                mensagem: 'Primeiro template pelo Vue'
+            }
+        }
+
+        new Vue(options)
+    </script>
 </body>
 </html>
