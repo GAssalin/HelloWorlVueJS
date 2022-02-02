@@ -60,7 +60,16 @@
         <p v-show="aparecer" id="">Olá! Apareci!</p><br><br>
 
         Trabalhando com v-html:
-        <div v-html="htmlText">Será substituido</div>
+        <div v-html="htmlText">Será substituido</div><br><br>
+
+        Trabalhando com v-for e v-text:<br>
+        <ul>
+            <li v-for="c, chave in perfil.cursos"> {{ chave }} - {{ c.nome }}</li>
+        </ul>
+        <br>
+        <ul>
+            <li v-for="c, chave in perfil.cursos" v-text="chave + ' - ' + c.nome"></li>
+        </ul>
     </div>
 
     <script>
