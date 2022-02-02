@@ -85,8 +85,14 @@
         -->
         Primeiro curso = {{ primeiroCurso }} <br>
         Cursos com carga horaria maior que 100 horas = 
-        <p v-for="c in cursosCargaHorariaMaior100">{{ c.nome }}</p> <br>
+        <p v-for="c in cursosCargaHorariaMaior100">{{ c.nome }}</p> <br><br>
 
+        <!--
+            Sincronização em tempo real no html e no vue
+        -->
+        Trabalhando com two-way-data binding:<br>
+        {{ txtDigitado }}<br>
+        <input type="text" v-model="txtDigitado" placeholder="Digite algo">
     </div>
 
     <script>
@@ -107,6 +113,7 @@
                 saldo: 1000,
                 exibirSaldo: false,
                 aparecer: false,
+                txtDigitado: '',
                 htmlText: '<h1>Olá Mundo</h1>',
                 //Array
                 hobbies: [
