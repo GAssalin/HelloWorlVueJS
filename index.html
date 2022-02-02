@@ -52,6 +52,12 @@
         <p v-if="perfil.idade < 18">Menor de idade</p>
         <p v-else-if="perfil.idade == 18">Parabens, 18tão</p>
         <p v-else>Maior de idade</p><br><br>
+
+        <!-- Trabalha com o display -->
+        <!-- Faz diferença no tempo de resposta. Mais rápido em relação ao v-if pois o elemento ja foi criado -->
+        Trabalhando com v-show:<br>
+        <p @mouseover="aparecer = true" @mouseout="aparecer = false">Aparecer elemento</p><br>
+        <p v-show="aparecer" id="">Olá! Apareci!</p>
     </div>
 
     <script>
@@ -71,6 +77,7 @@
                 cor: 'verde',
                 saldo: 1000,
                 exibirSaldo: false,
+                aparecer: false,
                 //Array
                 hobbies: [
                     'Dormir',
