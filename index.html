@@ -70,6 +70,10 @@
         <ul>
             <li v-for="c, chave in perfil.cursos" v-text="chave + ' - ' + c.nome"></li>
         </ul>
+        <br>
+        <ul>
+            <li v-for="{nome}, chave in perfil.cursos" v-text="chave + ' - ' + nome"></li>
+        </ul>
     </div>
 
     <script>
