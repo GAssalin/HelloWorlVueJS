@@ -57,7 +57,10 @@
         <!-- Faz diferença no tempo de resposta. Mais rápido em relação ao v-if pois o elemento ja foi criado -->
         Trabalhando com v-show:<br>
         <p @mouseover="aparecer = true" @mouseout="aparecer = false">Aparecer elemento</p><br>
-        <p v-show="aparecer" id="">Olá! Apareci!</p>
+        <p v-show="aparecer" id="">Olá! Apareci!</p><br><br>
+
+        Trabalhando com v-html:
+        <div v-html="htmlText">Será substituido</div>
     </div>
 
     <script>
@@ -78,6 +81,7 @@
                 saldo: 1000,
                 exibirSaldo: false,
                 aparecer: false,
+                htmlText: '<h1>Olá Mundo</h1>',
                 //Array
                 hobbies: [
                     'Dormir',
