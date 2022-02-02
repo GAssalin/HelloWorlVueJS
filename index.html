@@ -92,7 +92,10 @@
         -->
         Trabalhando com two-way-data binding:<br>
         {{ txtDigitado }}<br>
-        <input type="text" v-model="txtDigitado" placeholder="Digite algo">
+        <input type="text" v-model="txtDigitado" placeholder="Digite algo"><br><br>
+
+        Trabalhando com observadores:<br>
+        Nota Final: <input type="text" v-model="notaFinal">
     </div>
 
     <script>
@@ -115,6 +118,7 @@
                 aparecer: false,
                 txtDigitado: '',
                 htmlText: '<h1>Olá Mundo</h1>',
+                notaFinal: 0,
                 //Array
                 hobbies: [
                     'Dormir',
@@ -215,6 +219,14 @@
                 },
                 cursosCargaHorariaMaior100() {
                     return this.perfil.cursos.filter(cur => parseInt(cur.cargaHoraria.replace(' horas', '')) > 100)
+                }
+            },
+            watch: {
+                //É necessário que o nome da funcção watch seja igual ao data de referência
+                //Noralmente utilizado para operações assincronas... como uma busca em tempo real
+                //Não é necessário os dois parâmetros... poderia receber apenas o valorNovo
+                notaFinal(valorNovo, valorAntigo) {
+                    console.log(valorNovo, valorAntigo)
                 }
             }
         }
