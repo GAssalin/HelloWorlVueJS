@@ -74,6 +74,8 @@
         <ul>
             <li v-for="{nome}, chave in perfil.cursos" v-text="chave + ' - ' + nome"></li>
         </ul>
+        <br>
+        <button id="btnModificarCurso" @click="modificarCurso()">Modificar Curso</button>
     </div>
 
     <script>
@@ -149,6 +151,17 @@
                     console.log(this.perfil.idade)
                     this.perfil.idade = txtIdade.value
                     console.log(this.perfil.idade)
+                },
+                modificarCurso() {
+                    //Desse modo não haverá alteração no front
+                    //this.perfil.cursos[1] = {nome: 'Outro Curso', cargaHoraria: '50 horas'}
+                    //Para ser reativo, deve-se usar assim:
+                    //this.$set(<array>, <chave>, <novo_valor>)
+                    this.$set(
+                        this.perfil.cursos,
+                        1,
+                        {nome: 'Outro Curso', cargaHoraria: '50 horas'}
+                    )
                 }
             }
         }
