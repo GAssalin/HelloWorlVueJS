@@ -25,18 +25,33 @@
         Primeiro Curso do Perfil = {{ perfil.cursos[0] }} <br>
         Carga Horaria do Segundo Curso do Perfil = {{ perfil.cursos[1].cargaHoraria }} <br><br>
 
-        Trabahando com métodos:
+        Trabahando com métodos:<br>
         Chamando o método somar = 4 + 2 = {{ somar() }} <br>
         Chamando o método anônimo subtrair = 4 - 2 = {{ subtrair() }} <br>
         Chamando o método arrow multiplicar = 4 * 2 = {{ multiplicar() }} <br>
         Chamando o método enxuto dividir = 4 / 2 = {{ dividir() }} <br>
         Chamando o método média a partir do data = ({{ n1 }} + {{ n2 }}) / 2 = {{ media() }} <br><br>
 
-        Trabalhando com v-bind:
+        Trabalhando com v-bind:<br>
         <input type="text" v-bind:placeholder="instrucao"><br>
         <p :class="cor">Trocando a cor com v-bind</p> <br>
-        <a :href="perfil.site">Clique aqui v-bind</a><br>
+        <a :href="perfil.site">Clique aqui v-bind</a><br><br>
+
+        Trabalhando com v-on:<br>
+        <input type="text" v-on:keyup="imprimirTeste()"><br>
+        <button @click="mensagemAlerta()">Botao Alerta</button><br><br>
+
+        Trabahando com v-if:<br>
+        <button @click="exibirSaldo = !exibirSaldo">
+            <span v-if="!exibirSaldo">Exibir Saldo</span>
+            <span v-if="exibirSaldo">Esconder Saldo</span>
+        </button>
         
+        <p>Saldo = <span v-if="exibirSaldo">R$ {{ saldo }}</span></p><br>
+        Idade = <input type="text" id="txtIdade" @blur="setIdade()" @keyup.enter="setIdade()"><br>
+        <p v-if="perfil.idade < 18">Menor de idade</p>
+        <p v-else-if="perfil.idade == 18">Parabens, 18tão</p>
+        <p v-else>Maior de idade</p><br><br>
     </div>
 
     <script>
@@ -54,6 +69,8 @@
                 isLogado: false,
                 instrucao: 'Digite aqui',
                 cor: 'verde',
+                saldo: 1000,
+                exibirSaldo: false,
                 //Array
                 hobbies: [
                     'Dormir',
@@ -97,6 +114,17 @@
                 },
                 media() {
                     return (this.n1 + this.n2) / 2;
+                },
+                imprimirTeste() {
+                    console.log('Teste')
+                },
+                mensagemAlerta() {
+                    alert('Mensagem de alerta')
+                },
+                setIdade() {
+                    console.log(this.perfil.idade)
+                    this.perfil.idade = txtIdade.value
+                    console.log(this.perfil.idade)
                 }
             }
         }
