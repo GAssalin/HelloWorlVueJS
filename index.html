@@ -75,7 +75,18 @@
             <li v-for="{nome}, chave in perfil.cursos" v-text="chave + ' - ' + nome"></li>
         </ul>
         <br>
-        <button id="btnModificarCurso" @click="modificarCurso()">Modificar Curso</button>
+        <button id="btnModificarCurso" @click="modificarCurso()">Modificar Curso</button><br><br>
+
+        Trabalhando com propriedades computadas: <br>
+        <!--
+            Evita a necessidade de implementação de uma lógica diretamente no código
+            Com isso cria-se uma espécie de método que se encarrega de realizar o tratamento desejado
+            Não pode-se utilizar os () pois, assim ele busca nos métodos ao invés do computed
+        -->
+        Primeiro curso = {{ primeiroCurso }} <br>
+        Cursos com carga horaria maior que 100 horas = 
+        <p v-for="c in cursosCargaHorariaMaior100">{{ c.nome }}</p> <br>
+
     </div>
 
     <script>
@@ -115,7 +126,27 @@
                         },
                         {
                             nome: 'Direito',
+                            cargaHoraria: '900 horas'
+                        },
+                        {
+                            nome: 'Análise',
                             cargaHoraria: '500 horas'
+                        },
+                        {
+                            nome: 'Marketing',
+                            cargaHoraria: '30 horas'
+                        },
+                        {
+                            nome: 'Pub e Propag',
+                            cargaHoraria: '50 horas'
+                        },
+                        {
+                            nome: 'Odonto',
+                            cargaHoraria: '500 horas'
+                        },
+                        {
+                            nome: 'Medicina',
+                            cargaHoraria: '20 horas'
                         }
                     ]
                 }
@@ -162,6 +193,21 @@
                         1,
                         {nome: 'Outro Curso', cargaHoraria: '50 horas'}
                     )
+                }
+            },
+            computed: {
+                primeiroCurso() {
+                    let txt = ''
+
+                    if(this.perfil.cursos.length > 0) {
+                        txt += 'Nome: ' + this.perfil.cursos[0].nome
+                        txt += ' - Carga Horária: ' + this.perfil.cursos[0].cargaHoraria
+                    }
+
+                    return txt
+                },
+                cursosCargaHorariaMaior100() {
+                    return this.perfil.cursos.filter(cur => parseInt(cur.cargaHoraria.replace(' horas', '')) > 100)
                 }
             }
         }
